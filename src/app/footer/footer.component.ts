@@ -9,6 +9,7 @@ import {Social} from '../model/social.model';
 })
 export class FooterComponent {
     socials: Array<Social>;
+    date = new Date().getFullYear();
 
     constructor(private _socialService: SocialService) {
         this.socials = this._socialService.getSocialLinks();

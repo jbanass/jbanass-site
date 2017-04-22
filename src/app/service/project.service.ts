@@ -16,7 +16,8 @@ export class ProjectService {
 
                         `This project utilized Scala, Akka, virtual machines, Linux, and distributed design patterns 
                         to accomplish the goal.`
-                    ]),
+                    ],
+                    'https://github.com/jbanass/syncala'),
         new Project('Remote Web2Py Installer',
                     "Time Keeps on Slippin' into the __future__", 
                     [
@@ -32,7 +33,8 @@ export class ProjectService {
                         `This project utilized modules such as BeautifulSoup, __future__ for Python,
                         and urllib to download, send, compile, and initiate a Web2Py installation.                        
                         `
-                    ]),
+                    ],
+                    'https://github.com/jbanass/web2py-remote-installer'),
         new Project('TwitchSaver', 
                     'Or How I Learned to Stop Worrying and Love Tk()', 
                     [
