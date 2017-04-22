@@ -1,0 +1,11 @@
+<div id="container" class='project-explanation'>
+    <h2 class="teal" #top>{{project?.name}}</h2>
+    <h3>{{project?.subtitle}}</h3>
+    <div class='project-description-container' *ngFor="let description of project.descriptions">
+        <p class='project-description' >{{description}}</p>
+    </div>
+    <div class="project-button button" [class.disabled-button]="project.githubLink == undefined" (click)="openInGithub()">
+        <span [hidden]="project.githubLink == undefined">CHECK ME OUT ON <span class="teal">GITHUB</span></span>
+        <span [hidden]="project.githubLink != undefined">GITHUB LINK COMING <span class="teal half-opacity">SOON</span></span>
+    </div>
+</div>

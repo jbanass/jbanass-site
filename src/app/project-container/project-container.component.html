@@ -1,0 +1,22 @@
+<section id="container" class="section section-gap project">
+    <span [hidden]="!isBaseRoute()">
+        <div class="project-heading">
+            <h2 class="project-header teal">ALL TALK, NO SHOW?</h2>
+            <i>Not quite.</i>
+        </div>
+    </span>
+    <span [hidden]="!isBaseRoute()">
+        <div class="project-display" [class.hide-for-mobile]="!showForMobile">
+            <div [routerLink]="['/p/' + project.name]" class="project-link" *ngFor="let project of projects">
+                <p>{{project.name}}</p>
+            </div>
+        </div>
+    </span>
+    <router-outlet #item></router-outlet>
+    <div [hidden]="isBaseRoute()" [routerLink]="['/']" class="project-button button">
+        <span class="teal">BACK</span>
+    </div>
+    <div class="show-all-button project-button button" [class.hide-for-mobile]="showForMobile || !isBaseRoute()" (click)="showProjects()">
+        VIEW ALL <span class="teal">PROJECTS</span>
+    </div>
+</section>
