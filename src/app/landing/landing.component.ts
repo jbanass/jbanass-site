@@ -7,5 +7,5 @@ import {Component} from '@angular/core';
 export class LandingComponent {
     private _firstName: string = "Joseph";
     private _lastName: string = "Banass";
-    private _specialization: string = "Full Stack Developer based in Chicago";
+    Specialization: string = "Full Stack Developer based in Chicago";
 }
