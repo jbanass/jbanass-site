@@ -68,16 +68,6 @@ section {
     transform: translateX(0%) translateY(-50%);
 }
 
-.chevron-down {
-    margin-top:100px;
-    list-style: none;
-}
-
-.chevron-down li {
-    margin-bottom: -45px;
-    font-size:225%;
-}
-
 .half-opacity {
     opacity: .5;
 }
