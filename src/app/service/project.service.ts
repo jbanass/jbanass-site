@@ -1,5 +1,5 @@
 import {Project} from '../model/project.model';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {BehaviorSubject} from 'rxjs';
 
 export class ProjectService {
     projects: Array<Project> = [
