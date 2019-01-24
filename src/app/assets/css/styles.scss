@@ -83,27 +83,27 @@ section {
   max-width: 260px;
   padding: 20px;
   font-weight: 400;
-}
 
-.button:hover,
-.button:active {
-  cursor: pointer;
-  background-color: #373559;
+  &:hover,
+  &:active {
+    cursor: pointer;
+    background-color: $dark-blue;
+  }
 }
 
 .disabled-button {
   border: 3px solid rgba(104, 195, 183, 0.5);
   color: rgba(255, 255, 255, 0.5);
+
+  &:hover,
+  &:active {
+    cursor: default;
+    background-color: transparent;
+  }
 }
 
 .btn-action {
   color: $teal;
-}
-
-.disabled-button:hover,
-.disabled-button:active {
-  cursor: default;
-  background-color: transparent;
 }
 
 /* -------------------------------*/
@@ -190,6 +190,12 @@ section {
   color: $teal;
 }
 
+.project-explanation {
+  h2 {
+    color: $teal;
+  }
+}
+
 .project-display {
   display: inline-block;
   margin: 20px;
@@ -253,6 +259,7 @@ section {
 
 .footer-contact {
   min-height: 140px;
+  color: $light-gray;
 }
 
 .footer-contact a {
@@ -265,6 +272,7 @@ section {
 
 .footer-copyright {
   font-size: 70%;
+  color: $light-gray;
 }
 
 .footer-copyright img {
