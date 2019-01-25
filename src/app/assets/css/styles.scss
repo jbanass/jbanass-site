@@ -33,6 +33,21 @@ body {
   overflow-x: hidden;
 }
 
+.section-header {
+  letter-spacing: 0.3em;
+  padding: 10px;
+  border-left: 5px solid $teal;
+  color: $teal;
+  font-size: 80%;
+  text-align: left;
+}
+
+.section-subheader {
+  padding: 20px 0px;
+  font-family: $subheading-font;
+  font-weight: $subheading-weight;
+}
+
 .clearfix {
   zoom: 1;
 }
@@ -163,21 +178,6 @@ section {
   width: 60%;
 }
 
-.about-header {
-  letter-spacing: 0.3em;
-  padding: 10px;
-  border-left: 5px solid $teal;
-  color: $teal;
-  font-size: 80%;
-  text-align: left;
-}
-
-.about-subheader {
-  padding: 20px 0px;
-  font-family: $subheading-font;
-  font-weight: $subheading-weight;
-}
-
 .about-description {
   font-size: 90%;
 }
@@ -286,7 +286,7 @@ section {
 }
 
 .footer-image {
-  min-height: 200px;
+  min-height: 150px;
 }
 
 .footer-image img {
@@ -294,7 +294,7 @@ section {
 }
 
 .footer-contact {
-  min-height: 140px;
+  min-height: 110px;
 }
 
 .footer-contact a {
