@@ -1,11 +1,10 @@
 <div id="container" class="project-explanation">
   <h2 class="section-header" #top>{{ project?.name }}</h2>
   <h3 class="section-subheader light">{{ project?.subtitle }}</h3>
-  <div
-    class="project-description-container"
-    *ngFor="let description of project.descriptions"
-  >
-    <p class="project-description">{{ description }}</p>
+  <div class="project-description-container">
+    <div *ngFor="let description of project.descriptions">
+      <p class="project-description">{{ description }}</p>
+    </div>
   </div>
   <div
     class="button"
@@ -13,11 +12,10 @@
     (click)="openInGithub()"
   >
     <span [hidden]="project.githubLink == undefined"
-      >CHECK ME OUT ON <span class="btn-action">GITHUB</span></span
+      >CHECK ME OUT ON GITHUB</span
     >
     <span [hidden]="project.githubLink != undefined"
-      >GITHUB LINK COMING
-      <span class="btn-action half-opacity">SOON</span></span
+      >GITHUB LINK COMING <span class="half-opacity">SOON</span></span
     >
   </div>
 </div>

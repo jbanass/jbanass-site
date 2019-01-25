@@ -15,6 +15,7 @@ $subheading-font: "ivyjournal";
 $subheading-weight: 600;
 $copy: "interstate";
 $copy-weight: 400;
+$copy-height: 1.3em;
 
 * {
   margin: 0;
@@ -27,19 +28,22 @@ body {
   background-color: $dark-gray;
   color: $light-gray;
   font-family: $copy, "Arial", sans-serif;
-  font-size: 26px;
+  line-height: $copy-height;
+  font-size: 22px;
   font-weight: $copy-weight;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
 .section-header {
-  letter-spacing: 0.3em;
+  letter-spacing: 0.2em;
   padding: 10px;
   border-left: 5px solid $teal;
   color: $teal;
   font-size: 80%;
   text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
 .section-subheader {
@@ -89,7 +93,7 @@ section {
 }
 
 .section-gap {
-  padding: 50px 0px 0px 0px;
+  //padding: 50px 0px 0px 0px;
 }
 
 .center-v-h {
@@ -122,7 +126,8 @@ section {
   &:hover,
   &:active {
     cursor: pointer;
-    background-color: $purple;
+    border: 3px solid $purple;
+    color: $purple;
   }
 }
 
@@ -135,10 +140,6 @@ section {
     cursor: default;
     background-color: transparent;
   }
-}
-
-.btn-action {
-  color: $teal;
 }
 
 /* -------------------------------*/
@@ -157,15 +158,14 @@ section {
 }
 
 .hero-image {
-  width: 90%;
+  width: 80%;
 }
 
 .hero-text {
   font-family: $copy;
-  font-weight: 700;
   letter-spacing: 0.3em;
   line-height: 1.4em;
-  padding-top: 10px;
+  padding: 10px 35px;
   font-size: 59%;
   color: $light-gray;
 }
@@ -182,10 +182,6 @@ section {
   width: 60%;
 }
 
-.about-description {
-  font-size: 90%;
-}
-
 /*
     project
 */
@@ -194,7 +190,7 @@ section {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center top;
   width: 100%;
   height: auto;
   text-align: left;
@@ -218,6 +214,8 @@ section {
 .project-container {
   background-color: $dark-gray;
   padding: 60px;
+  display: grid;
+  justify-content: center;
 }
 
 .project-heading {
@@ -231,8 +229,9 @@ section {
 }
 
 .project-display {
-  display: inline-block;
+  display: flex;
   margin: 20px;
+  flex-direction: column;
 }
 
 .hide-for-mobile {
@@ -240,26 +239,34 @@ section {
 }
 
 .project-link {
-  background-image: url("assets/cosmo-1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   display: inline-block;
   position: relative;
   width: 200px;
-  height: 170px;
+  height: 200px;
   text-align: center;
-  font-size: 80%;
+  font-size: 100%;
   margin: 20px 10px 0px 10px;
   cursor: pointer;
   font-weight: 400;
   letter-spacing: 0.1em;
 }
 
+.cosmo-a {
+  background-image: url("assets/Cosmo-1.jpg");
+}
+
+.cosmo-b {
+  background-image: url("assets/Cosmo-2.jpg");
+}
+
 .project-link p {
   margin: 70px 20px 0px 20px;
   display: inline-flex;
   color: $light-gray;
+  text-transform: uppercase;
 }
 
 .project-description-container {
@@ -269,10 +276,10 @@ section {
 }
 
 .project-description {
-  font-size: 80%;
   display: inline-block;
   max-width: 527px;
   text-align: left;
+  padding-bottom: 10px;
 }
 
 /*
@@ -294,7 +301,7 @@ section {
 }
 
 .footer-image img {
-  width: 80%;
+  width: 200px;
 }
 
 .footer-contact {
@@ -307,6 +314,7 @@ section {
 
 .footer-contact p {
   padding-bottom: 8px;
+  font-family: $subheading-font;
 }
 
 .footer-copyright {
@@ -348,4 +356,5 @@ section {
 
 .callout {
   color: $teal;
+  font-weight: 700;
 }

@@ -3,7 +3,7 @@
 
 @media only screen and (min-width: 426px) and (max-width: 767px) {
   .about-img {
-    width: 256px;
+    width: 260px;
     height: auto;
   }
 
@@ -14,43 +14,68 @@
 }
 
 @media only screen and (min-width: 768px) {
+  section {
+    padding: 75px 6%;
+  }
+
+  .section-subheader {
+    font-size: 120%;
+  }
+
   .tablet {
     display: initial;
   }
 
+  .vr {
+    height: 100px;
+    margin-top: -50px;
+  }
+
   .hero-text {
-    font-size: 90%;
+    font-size: 110%;
+  }
+
+  .hero-image {
+    padding-bottom: 30px;
   }
 
   .half {
     width: 50%;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .about {
-    padding: 50px 50px 0px 50px;
+    //padding: 50px 50px 50px 50px;
     display: inline-flex;
   }
 
   .section-header {
-    font-size: 70%;
+    font-size: 80%;
   }
 
   .about-img {
-    width: 230px;
+    width: 320px;
     height: auto;
-    padding-bottom: 40px;
   }
 
   .about-description {
     font-size: 90%;
-    padding-top: 30px;
   }
 
   .about-description p {
     display: inline-block;
     padding-bottom: 20px;
     width: 100%;
+  }
+
+  .project-container {
+    padding: 80px 60px;
+  }
+
+  .project {
+    display: inline-flex;
   }
 
   .project-header {
@@ -62,17 +87,18 @@
   }
 
   .project-display {
-    display: inline-block;
-    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: center;
   }
 
   .project-link {
-    width: 27%;
+    width: 30%;
   }
 
-  .project-explanation h2,
-  .project-explanation h3 {
-    padding: 20px;
+  .project-description-container {
+    column-count: 2;
   }
 
   .project-explanation p {
@@ -89,31 +115,26 @@
   }
 
   .footer-image img {
-    width: 185px;
-    margin-bottom: 40px;
+    width: 145px;
+    position: relative;
+    top: 35px;
   }
 
   .footer-contact {
-    display: inline-block;
-    text-align: center;
-    vertical-align: top;
-    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    min-height: 0;
+    position: relative;
+    top: -20px;
   }
 
   .footer-divider {
-    width: 3px;
-    height: 120px;
-    display: inline-block;
-    margin: 0px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 40px;
+    margin: 0;
   }
 
   .footer-copyright {
-    display: inline-block;
-    vertical-align: top;
-    padding-top: 36px;
+    padding: 16px 0px;
     text-align: left;
   }
 
@@ -125,16 +146,20 @@
     width: 40px;
     height: 40px;
     margin: 0px 3px;
-    font-size: 80%;
+    font-size: 100%;
     padding: 7px 5px 5px 5px;
   }
 
   .section-gap-footer {
-    padding: 50px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
   }
 
   .mobile {
     display: none;
+  }
+
+  .footer {
+    text-align: left;
   }
 }
 
@@ -145,7 +170,4 @@
 }
 
 @media only screen and (min-width: 1440px) {
-  .about-description {
-    padding-top: 70px;
-  }
 }
