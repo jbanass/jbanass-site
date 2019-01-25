@@ -3,9 +3,11 @@
 /* -------------------------------*/
 
 $light-gray: #cac6c3;
-$black: #141421;
+$dark-gray: #141421;
+$black: #090a0a;
 $teal: #46beb3;
 $purple: #3d2f84;
+$light-purple: #3b3b66;
 
 $heading-font: "Brandon-Grotesque";
 $heading-weight: 700;
@@ -22,8 +24,8 @@ $copy-weight: 400;
 
 html,
 body {
-  background-color: #fff;
-  color: #000;
+  background-color: $dark-gray;
+  color: $light-gray;
   font-family: $copy, "Arial", sans-serif;
   font-size: 26px;
   font-weight: $copy-weight;
@@ -192,7 +194,6 @@ section {
   width: 100%;
   height: auto;
   text-align: left;
-  color: #fff;
   padding-bottom: 70px;
   box-shadow: inset 0 0 1em #111;
 }
@@ -211,7 +212,7 @@ section {
 }
 
 .project-container {
-  background-color: $black;
+  background-color: $dark-gray;
   padding: 60px;
 }
 
@@ -276,6 +277,12 @@ section {
 .footer {
   text-align: center;
   overflow: hidden;
+  background-color: $black;
+  color: $light-purple;
+}
+
+.footer-contents {
+  margin: 0 30px;
 }
 
 .footer-image {
@@ -288,7 +295,6 @@ section {
 
 .footer-contact {
   min-height: 140px;
-  color: $light-gray;
 }
 
 .footer-contact a {
@@ -301,7 +307,6 @@ section {
 
 .footer-copyright {
   font-size: 70%;
-  color: $light-gray;
 }
 
 .footer-copyright img {
@@ -316,9 +321,6 @@ section {
 .social {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  color: #fff;
-  background-color: $light-gray;
   padding: 3px 5px 5px 6px;
   display: inline-block;
   margin: 0px 5px;
@@ -327,7 +329,7 @@ section {
 
 .social:hover,
 .social:active {
-  color: $purple;
+  color: $light-gray;
   cursor: pointer;
 }
 
@@ -335,10 +337,9 @@ section {
   height: 3.5px;
   margin-top: 5px;
   margin-bottom: 40px;
-  margin-left: 60px;
-  margin-left: 70px;
   margin-right: 70px;
-  background-color: $light-gray;
+  background-color: $light-purple;
+  width: 100%;
 }
 
 .callout {
