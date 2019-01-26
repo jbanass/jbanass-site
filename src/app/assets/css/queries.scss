@@ -18,6 +18,10 @@
     padding: 75px 6%;
   }
 
+  .landing {
+    background-attachment: fixed;
+  }
+
   .section-subheader {
     font-size: 120%;
   }
@@ -76,6 +80,7 @@
 
   .project {
     display: inline-flex;
+    background-attachment: fixed;
   }
 
   .project-header {
