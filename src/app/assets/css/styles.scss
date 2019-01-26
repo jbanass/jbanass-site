@@ -148,7 +148,7 @@ section {
 /*Landing                         */
 /* -------------------------------*/
 .landing {
-  background-image: url("assets/galaxy-hero.jpg");
+  background: url("assets/galaxy-hero.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -188,7 +188,7 @@ section {
     project
 */
 .project {
-  background-image: url("assets/moon-background.jpg");
+  background: url("assets/moon-background.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -257,11 +257,11 @@ section {
 }
 
 .cosmo-a {
-  background-image: url("assets/Cosmo-1.jpg");
+  background: url("assets/Cosmo-1.jpg");
 }
 
 .cosmo-b {
-  background-image: url("assets/Cosmo-2.jpg");
+  background: url("assets/Cosmo-2.jpg");
 }
 
 .project-link p {
