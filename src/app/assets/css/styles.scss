@@ -139,6 +139,8 @@ section {
   &:active {
     cursor: default;
     background-color: transparent;
+    border: 3px solid rgba(104, 195, 183, 0.5);
+    color: rgba(104, 195, 183, 0.5);
   }
 }
 
@@ -247,10 +249,10 @@ section {
   width: 200px;
   height: 200px;
   text-align: center;
-  font-size: 100%;
+  font-size: 90%;
   margin: 20px 10px 0px 10px;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.1em;
 }
 
