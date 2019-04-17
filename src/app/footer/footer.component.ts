@@ -4,7 +4,7 @@ import {SocialService} from '../service/social.service';
 import {Social} from '../model/social.model';
 
 @Component({
-    selector: 'footer',
+    selector: 'ng-footer',
     templateUrl: 'footer.component.html'
 })
 export class FooterComponent {
