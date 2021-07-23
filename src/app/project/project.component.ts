@@ -8,7 +8,7 @@ import {ProjectService} from '../service/project.service';
     templateUrl: 'project.component.html'
 })
 export class ProjectComponent {
-    @ViewChild('top') itemRef: ElementRef;
+    @ViewChild('top', { static: true }) itemRef: ElementRef;
     @Input() project: Project;    
 
     constructor(private _route: ActivatedRoute, private _router: Router, private _projectService: ProjectService) {
