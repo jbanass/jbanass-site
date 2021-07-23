@@ -1,6 +1,8 @@
 import {Project} from '../model/project.model';
 import {BehaviorSubject} from 'rxjs';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class ProjectService {
     projects: Array<Project> = [
         new Project('Syncala', 

@@ -1,5 +1,7 @@
 import {Social} from '../model/social.model';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class SocialService {
     socials: Array<Social> = [
         new Social('ion-social-facebook','https://www.facebook.com/joe.banass'),
