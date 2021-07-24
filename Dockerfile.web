@@ -1,4 +1,5 @@
 FROM node:14.15.1 as build
+ARG env=production
 
 WORKDIR /usr/local/app
 
@@ -6,7 +7,7 @@ COPY . /usr/local/app/
 
 RUN yarn install
 
-RUN yarn ng build
+RUN yarn ng build --configuration $env
 
 FROM nginx:latest
 
