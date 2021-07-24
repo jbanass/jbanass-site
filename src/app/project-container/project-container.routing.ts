@@ -8,4 +8,4 @@ const appRoutes: Routes = [
   { path: "p/:name", component: ProjectComponent }
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' });
