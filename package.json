@@ -9,11 +9,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "devBuild": "docker build --file Dockerfile.web -t jbanass/personal-site:latest . --build-arg env=development",
+    "devBuild": "docker build --file Dockerfile.web -t jbanass/personal-site:latest . --build-arg ENV=development",
     "prodBuild": "docker build --file Dockerfile.web -t jbanass/personal-site:latest .",
     "devRun": "docker run -p 8080:80 -t jbanass/personal-site:latest",
-    "push": "heroku container:push -a jbanass-site --recursive",
-    "release": "heroku container:release -a jbanass-site web"
+    "push": "heroku container:push --arg ENV=production,SHA=$(git rev-parse HEAD) -a jbanass-site --recursive",
+    "release": "heroku container:release -a jbanass-site web",
+    "woop": "echo $(git rev-parse HEAD)"
   },
   "keywords": [],
   "author": {

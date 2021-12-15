@@ -1,18 +1,22 @@
 FROM node:14.15.1 as build
-ARG env=production
+ARG ENV=production
+ARG SHA=undefined
 
 WORKDIR /usr/local/app
 
 COPY . /usr/local/app/
 
+RUN echo $ENV $SHA > /usr/local/app/.sha
+
 RUN yarn install
 
-RUN yarn ng build --configuration $env
+RUN yarn ng build --configuration $ENV
 
 FROM nginx:latest
 
 COPY --from=build /usr/local/app/dist/ /usr/share/nginx/html
 COPY --from=build /usr/local/app/default.conf.template /etc/nginx/conf.d
 COPY --from=build /usr/local/app/docker_entrypoint.sh /docker-entrypoint.d
+COPY --from=build /usr/local/app/.sha /.sha
 
 RUN chmod +x /docker-entrypoint.d/docker_entrypoint.sh
