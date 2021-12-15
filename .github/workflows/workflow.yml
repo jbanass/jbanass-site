@@ -20,9 +20,9 @@ jobs:
     - name: Build and push
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:push -a jbanass-site web 
+      run: heroku container:push -R -a jbanass-site 
       
     - name: Release
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:release -a jbanass-site web 
+      run: heroku container:release web -a jbanass-site
