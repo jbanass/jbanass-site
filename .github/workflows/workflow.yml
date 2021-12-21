@@ -1,17 +1,42 @@
-name: CD
+name: CI/CD
 
-on:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  build:
+  test:
+    name: Test
     environment: heroku
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.5.0
+        with:
+          node-version-file: .nvm
+          cache-dependency-path: yarn.lock
+          
+      - name: Install Dependencies
+        run: yarn
+        
+      - name: Run Tests
+        run: yarn test
+        
+  deploy:
+    name: Deployment
+    needs: [test]
+    if: github.ref == 'refs/heads/main'
+    environment: heroku
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.5.0
+        with:
+          node-version-file: .nvm
+          cache-dependency-path: yarn.lock
+        
       - name: Login to Heroku Container registry
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
