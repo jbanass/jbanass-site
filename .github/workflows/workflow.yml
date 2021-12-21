@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.0
         with:
-          node-version-file: .nvm
+          node-version-file: .nvmrc
           cache-dependency-path: yarn.lock
           
       - name: Install Dependencies
