@@ -34,11 +34,16 @@ jobs:
         
       - name: Fetch PR Number
         uses: jwalton/gh-find-current-pr@v1.2.1
+        id: findPr
         with:
           sha: ${{ github.event.pull_request.head.sha }}
       
       - name: Create Heroku App
-        run: heroku apps:create jbanass-site-${{ steps.vars.outputs.pr }} --no-remote
+        if: success() && steps.findPr.outputs.number
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          PR: ${{ steps.findPr.outputs.pr }}
+        run: heroku apps:create jbanass-site-$PR --no-remote
           
 
   deploy:
