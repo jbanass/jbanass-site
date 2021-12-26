@@ -44,7 +44,12 @@ jobs:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           PR: ${{ steps.findPr.outputs.pr }}
         run: |
-          heroku apps:create jbanass-site-$PR --no-remote
+          if [[ "$(heroku apps | grep -c jbanass-site-$PR)" -ge 1 ]]; then
+            echo "App already created"
+          else
+            heroku apps:create jbanass-site-$PR --no-remote
+          fi
+          
           heroku container:login
           heroku container:push --arg ENV=production,SHA=$GITHUB_SHA -a jbanass-site-$PR --recursive
           heroku container:release web -a jbanass-site-$PR
