@@ -38,7 +38,7 @@ jobs:
           sha: ${{ github.event.pull_request.head.sha }}
       
       - name: Create Heroku App
-        run: heroku apps:create jbanass-site-${{PR}} --no-remote
+        run: heroku apps:create jbanass-site-${ PR } --no-remote
           
 
   deploy:
