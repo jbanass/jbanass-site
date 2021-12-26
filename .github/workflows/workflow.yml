@@ -9,28 +9,47 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.0
         with:
           node-version-file: .nvmrc
           cache-dependency-path: yarn.lock
-          
+
       - name: Install Dependencies
         run: yarn
-        
+
       - name: Run Tests
         run: yarn woop
+
+  stage:
+    name: Deploy to Heroku Staging
+    needs: [test]
+    if: github.ref != 'refs/heads/main'
+    environment: heroku
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
         
+      - name: Fetch PR Number
+        uses: jwalton/gh-find-current-pr@v1.2.1
+        with:
+          sha: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Create Heroku App
+        run: heroku apps:create jbanass-site-${{PR}} --no-remote
+          
+
   deploy:
-    name: Deployment
+    name: Deploy to live
     needs: [test]
     if: github.ref == 'refs/heads/main'
     environment: heroku
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        
+
       - name: Login to Heroku Container registry
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
