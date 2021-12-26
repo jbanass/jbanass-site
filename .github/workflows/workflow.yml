@@ -43,7 +43,11 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           PR: ${{ steps.findPr.outputs.pr }}
-        run: heroku apps:create jbanass-site-$PR --no-remote
+        run: |
+          heroku apps:create jbanass-site-$PR --no-remote
+          heroku container:login
+          heroku container:push --arg ENV=production,SHA=$GITHUB_SHA -a jbanass-site-$PR --recursive
+          heroku container:release web -a jbanass-site-$PR
           
 
   deploy:
