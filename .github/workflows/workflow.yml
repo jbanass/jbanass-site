@@ -78,3 +78,28 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:release web -a jbanass-site
+        
+  cleanup:
+    name: Cleanup Stage
+    if:
+      github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    environment: heroku
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+        
+      - name: Fetch PR Number
+        uses: jwalton/gh-find-current-pr@v1.2.1
+        id: findPr
+        with:
+          sha: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Cleanup Staging Env
+        if: success() && steps.findPr.outputs.number
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          PR: ${{ steps.findPr.outputs.pr }}
+        run:
+          heroku apps:destroy -a jbanass-site-$PR
+    
