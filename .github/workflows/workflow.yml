@@ -1,6 +1,10 @@
 name: CI/CD
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   test:
@@ -9,28 +13,61 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.0
         with:
           node-version-file: .nvmrc
           cache-dependency-path: yarn.lock
-          
+
       - name: Install Dependencies
         run: yarn
-        
+
       - name: Run Tests
         run: yarn woop
+
+  stage:
+    name: Deploy to Heroku Staging
+    needs: [test]
+    if: github.ref != 'refs/heads/main'
+    environment: heroku
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
         
+      - name: Fetch PR Number
+        uses: jwalton/gh-find-current-pr@v1.2.1
+        id: findPr
+        with:
+          sha: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Create Heroku App
+        if: success() && steps.findPr.outputs.number
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          PR: ${{ steps.findPr.outputs.pr }}
+        run: |
+          if [[ "$(heroku apps | grep -c jbanass-site-$PR)" -ge 1 ]]; then
+            echo "App already created"
+          else
+            heroku apps:create jbanass-site-$PR --no-remote
+          fi
+          
+          heroku container:login
+          heroku container:push --arg ENV=production,SHA=$GITHUB_SHA -a jbanass-site-$PR --recursive
+          heroku container:release web -a jbanass-site-$PR
+          
+
   deploy:
-    name: Deployment
+    name: Deploy to live
     needs: [test]
     if: github.ref == 'refs/heads/main'
     environment: heroku
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        
+
       - name: Login to Heroku Container registry
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
@@ -45,3 +82,28 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:release web -a jbanass-site
+        
+  cleanup:
+    name: Cleanup Stage
+    if:
+      github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    environment: heroku
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+        
+      - name: Fetch PR Number
+        uses: jwalton/gh-find-current-pr@v1.2.1
+        id: findPr
+        with:
+          sha: ${{ github.event.pull_request.head.sha }}
+      
+      - name: Cleanup Staging Env
+        if: success() && steps.findPr.outputs.number
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          PR: ${{ steps.findPr.outputs.pr }}
+        run:
+          heroku apps:destroy -a jbanass-site-$PR
+    
