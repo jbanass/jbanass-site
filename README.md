@@ -2,4 +2,6 @@
 
 Personal site for Joseph Banass
 
-test update
+# TODO
+
+Add steps for running locally
