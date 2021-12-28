@@ -90,10 +90,13 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
+        
+      - name: Grab PR Number From Description
+        run: echo ${{ github.head_commit.message }}
 
       - name: Fetch PR Number
         uses: jwalton/gh-find-current-pr@v1.2.1
-        id: findPr
+        id: findPr          
 
       - name: Cleanup Staging Env
         if: success() && steps.findPr.outputs.number
