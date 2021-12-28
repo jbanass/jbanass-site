@@ -94,8 +94,6 @@ jobs:
       - name: Fetch PR Number
         uses: jwalton/gh-find-current-pr@v1.2.1
         id: findPr
-        with:
-          sha: ${{ github.event.pull_request.head.sha }}
 
       - name: Cleanup Staging Env
         if: success() && steps.findPr.outputs.number
