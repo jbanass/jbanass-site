@@ -101,4 +101,4 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           PR: ${{ steps.findPr.outputs.PR }}
-        run: heroku apps:destroy -a jbanass-site-$PR -c
+        run: heroku apps:destroy -a jbanass-site-$PR --confirm=confirm
