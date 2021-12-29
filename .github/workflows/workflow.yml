@@ -94,7 +94,7 @@ jobs:
       - name: Grab PR Number From Description
         id: findPr
         run: 
-          echo "::set-output name=PR::$(echo ${{ github.event.commits[0].message }} | grep -Eo '[0-9]*' | head -1)"
+          echo "::set-output name=PR::$(echo '${{ github.event.commits[0].message }}' | grep -Eo '[0-9]*' | head -1)"
 
       - name: Cleanup Staging Env
         if: success() && steps.findPr.outputs.PR
