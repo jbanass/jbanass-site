@@ -4,4 +4,4 @@ Personal site for Joseph Banass
 
 # TODO
 
-Add steps for running locally soon (eventually) (testing stage site destruction) (another test)
+Add steps for running locally soon (eventually) (testing stage site destruction) (another test) (another one)
