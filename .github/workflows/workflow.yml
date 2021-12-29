@@ -92,15 +92,12 @@ jobs:
         uses: actions/checkout@v1
         
       - name: Grab PR Number From Description
-        run: echo ${{ github.event.commits[0].message }}
-
-      - name: Fetch PR Number
-        uses: jwalton/gh-find-current-pr@v1.2.1
-        id: findPr          
+        id: findPr
+        run: echo "::set-output name=PR::echo $(echo ${{ github.event.commits[0].message }} | grep -Eo '[0-9]*' | head -1 "
 
       - name: Cleanup Staging Env
-        if: success() && steps.findPr.outputs.number
+        if: success() && steps.findPr.outputs.PR
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          PR: ${{ steps.findPr.outputs.pr }}
+          PR: ${{ steps.findPr.outputs.PR }}
         run: heroku apps:destroy -a jbanass-site-$PR
