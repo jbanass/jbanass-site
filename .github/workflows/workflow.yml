@@ -93,7 +93,9 @@ jobs:
         
       - name: Grab PR Number From Description
         id: findPr
-        run: 
+        run:
+          echo ${{ github.events.commits }}
+          echo ${{ github.events.head_commit.message }}
           echo "::set-output name=PR::$(echo '${{ github.event.commits[0].message }}' | grep -Eo '[0-9]*' | head -1)"
 
       - name: Cleanup Staging Env
