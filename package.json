@@ -1,14 +1,11 @@
 {
-  "name": "site",
+  "name": "vue-jbanass",
   "version": "0.1.0",
-  "license": "MIT",
-  "angular-cli": {},
+  "private": true,
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "devBuild": "docker build --file Dockerfile.web -t jbanass/personal-site:latest . --build-arg ENV=development",
     "prodBuild": "docker build --file Dockerfile.web -t jbanass/personal-site:latest .",
     "devRun": "docker run -p 8080:80 -t jbanass/personal-site:latest",
@@ -16,54 +13,36 @@
     "release": "heroku container:release -a jbanass-site web",
     "woop": "echo $(git rev-parse HEAD)"
   },
-  "keywords": [],
-  "author": {
-    "email": "jbanass@gmail.com",
-    "name": "Joseph Banass"
-  },
-  "private": true,
   "dependencies": {
-    "@angular/animations": "12.1.3",
-    "@angular/common": "12.1.3",
-    "@angular/compiler": "12.1.3",
-    "@angular/compiler-cli": "12.1.3",
-    "@angular/core": "12.1.3",
-    "@angular/forms": "12.1.3",
-    "@angular/platform-browser": "12.1.3",
-    "@angular/platform-browser-dynamic": "12.1.3",
-    "@angular/platform-server": "12.1.3",
-    "@angular/router": "12.1.3",
-    "@angular/upgrade": "12.1.3",
-    "angular-in-memory-web-api": "~0.5.0",
-    "core-js": "^2.4.1",
-    "rxjs": "^6.3.3",
-    "tslib": "^2.0.0",
-    "web-animations-js": "^2.3.2",
-    "zone.js": "~0.11.4"
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.1.3",
-    "@angular/cli": "^12.1.3",
-    "@types/jasmine": "~3.6.0",
-    "@types/jasminewd2": "^2.0.3",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^6.0.0",
-    "jasmine": "~2.4.1",
-    "jasmine-core": "~3.6.0",
-    "karma": "~6.3.4",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-cli": "^1.0.1",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
-    "karma-phantomjs-launcher": "^1.0.2",
-    "lodash": "^4.16.2",
-    "phantomjs-prebuilt": "^2.1.7",
-    "protractor": "~7.0.0",
-    "ts-node": "^3.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "4.3.5"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0"
   },
-  "repository": {
-    "url": "https://github.com/jbanass/jbanass-site"
-  }
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
