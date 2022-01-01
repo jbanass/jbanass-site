@@ -24,7 +24,7 @@ jobs:
         run: yarn
 
       - name: Run Tests
-        run: yarn woop
+        run: yarn test:unit
 
   stage:
     name: Deploy to Heroku Staging
@@ -90,12 +90,12 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
-        
+
       - name: Fetch PR Number
         uses: jwalton/gh-find-current-pr@v1.2.1
         id: findPr
         with:
-          state: closed          
+          state: closed
 
       - name: Cleanup Staging Env
         if: success() && steps.findPr.outputs.pr
