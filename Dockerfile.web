@@ -10,7 +10,7 @@ RUN echo $ENV $SHA > /usr/local/app/.sha
 
 RUN yarn install
 
-RUN yarn ng build --configuration $ENV
+RUN yarn build --mode $ENV
 
 FROM nginx:latest
 
