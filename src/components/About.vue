@@ -8,7 +8,7 @@
           src="../assets/Astronaut.png"
         />
       </div>
-      <div>
+      <div class="section-content">
         <h2 class="section-header">Hello</h2>
         <div class="section-subheader">Passionate. Involved. Dedicated.</div>
         <p class="section-description">
@@ -51,7 +51,12 @@ export default {
     margin: 0 30px;
   }
 
+  .section-content {
+    width: 50%;
+  }
+
   .about-img {
+    width: 50%;
     padding: 0 20px;
     img {
       width: 320px;
