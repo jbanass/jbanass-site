@@ -44,4 +44,18 @@ export default {
     width: 60%;
   }
 }
+
+@media only screen and (min-width: 768px) {
+  .about {
+    flex-direction: row-reverse;
+    margin: 0 30px;
+  }
+
+  .about-img {
+    padding: 0 20px;
+    img {
+      width: 320px;
+    }
+  }
+}
 </style>
