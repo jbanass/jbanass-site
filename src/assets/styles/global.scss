@@ -17,19 +17,3 @@ body {
   margin: 0;
 }
 
-.section-header {
-  letter-spacing: 0.2em;
-  padding: 10px;
-  border-left: 5px solid $teal;
-  color: $teal;
-  font-size: 80%;
-  text-align: left;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-.section-subheader {
-  padding: 20px 0px;
-  font-family: $subheading-font;
-  font-weight: $subheading-weight;
-}
