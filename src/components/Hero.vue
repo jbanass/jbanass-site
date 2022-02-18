@@ -1,14 +1,16 @@
 <template>
-  <section class="landing">
-    <div class="center-v-h">
-      <img
-        class="hero-image"
-        alt="Joseph Banass Logo"
-        title="Joseph Banass Hero Logo"
-        src="../assets/JB-Logo-Main.png"
-      />
-      <p class="hero-text light-gray">
-        FULL STACK DEVELOPER BASED IN <em class="callout">CHICAGO</em>.
+  <section class="hero">
+    <div class="hero__header">
+      <div class="hero__image">
+        <img
+          alt="Joseph Banass Logo"
+          title="Joseph Banass Hero Logo"
+          src="../assets/JB-Logo-Main.png"
+        />
+      </div>
+      <p class="hero__text light-gray">
+        FULL STACK DEVELOPER BASED IN
+        <em class="hero__text--callout">CHICAGO</em>.
       </p>
     </div>
   </section>
@@ -25,14 +27,7 @@ section {
   padding: 0px 0;
 }
 
-.center-v-h {
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  transform: translateX(0%) translateY(-50%);
-}
-
-.landing {
+.hero {
   background: url("../assets/Galaxy-Hero.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,35 +38,42 @@ section {
   box-shadow: inset 0 0 1em #111;
 }
 
-.hero-image {
-  width: 80%;
-}
+.hero__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 5px;
 
-.hero-text {
-  font-family: "interstate";
-  letter-spacing: 0.3em;
-  line-height: 1.4em;
-  padding: 10px 35px;
-  font-size: 59%;
-  color: #cac6c3;
-}
+  .hero__image img {
+    width: 80%;
+  }
 
-.callout {
-  color: $teal;
-  font-weight: 700;
+  .hero__text {
+    font-family: "interstate";
+    letter-spacing: 0.3em;
+    line-height: 1.4em;
+    padding: 10px 35px;
+    font-size: 59%;
+    color: #cac6c3;
+
+    .hero__text--callout {
+      color: $teal;
+      font-weight: 700;
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  .landing {
+  .hero {
     background-attachment: fixed;
   }
 
-  .hero-text {
-    font-size: 110%;
-  }
-
-  .hero-image {
-    padding-bottom: 30px;
+  .hero__header {
+    .hero__text {
+      font-size: 110%;
+    }
   }
 }
 </style>
