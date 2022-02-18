@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="shadow">
     <div class="project">
       <div class="project__image half">
         <img
@@ -28,18 +28,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.half {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 section {
   background: url("../assets/Moon-Background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  box-shadow: inset 0 0 1em #111;
 }
 
 .project {
@@ -78,10 +71,6 @@ section {
 }
 
 @media only screen and (min-width: 768px) {
-  .half {
-    width: 50%;
-  }
-
   section {
     background-attachment: fixed;
   }

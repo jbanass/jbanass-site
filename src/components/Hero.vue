@@ -1,5 +1,5 @@
 <template>
-  <section class="hero">
+  <section class="hero shadow">
     <div class="hero__header">
       <div class="hero__image">
         <img
@@ -35,7 +35,6 @@ section {
   width: 100%;
   height: 100vh;
   text-align: center;
-  box-shadow: inset 0 0 1em #111;
 }
 
 .hero__header {
