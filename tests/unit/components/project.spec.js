@@ -48,8 +48,22 @@ describe("Project", () => {
         expect(
           wrapper.find(".project__description").element.textContent.trim()
         ).toEqual(
-          "Not quite. Below are a few choice projects that I enjoyed making the most from different languages and frameworks, like Ruby, Python, Scala, Vue, and C++"
+          "Not quite. Check out my GitHub for an assortment of projects and scripts I'm in the middle of!"
         );
+      });
+
+      describe("anchor link", () => {
+        it("includes an anchor link", () => {
+          const wrapper = shallowMount(Project);
+          expect(wrapper.find(".project__description a").exists()).toBe(true);
+        });
+
+        it("links out to my GitHub", () => {
+          const wrapper = shallowMount(Project);
+          expect(wrapper.find(".project__description a").element.href).toEqual(
+            "https://github.com/jbanass"
+          );
+        });
       });
     });
   });

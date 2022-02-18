@@ -12,9 +12,9 @@
         <h2 class="project__header">Projects</h2>
         <div class="project__subheader">All talk and no show?</div>
         <p class="project__description">
-          Not quite. Below are a few choice projects that I enjoyed making the
-          most from different languages and frameworks, like Ruby, Python,
-          Scala, Vue, and C++
+          Not quite. Check out
+          <a href="https://github.com/jbanass">my GitHub</a> for an assortment
+          of projects and scripts I'm in the middle of!
         </p>
       </div>
     </div>
@@ -33,6 +33,10 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+}
+
+a {
+  color: $teal;
 }
 
 .project {
