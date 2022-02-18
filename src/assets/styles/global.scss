@@ -17,3 +17,12 @@ body {
   margin: 0;
 }
 
+.half {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.shadow {
+  box-shadow: inset 0 0 1em #111;
+}

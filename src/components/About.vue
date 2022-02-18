@@ -67,10 +67,6 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-  .half {
-    width: 50%;
-  }
-
   .about__subheader {
     font-size: 120%;
   }
@@ -85,9 +81,6 @@ export default {
   }
 
   .about__img {
-    width: 50%;
-    padding: 0 20px;
-
     img {
       width: 320px;
     }
