@@ -1,17 +1,8 @@
 server {
-       listen       $PORT;
-       server_name  josephbanass.dev;
+  listen $PORT default_server;
 
-       return 301 $scheme://www.josephbanass.dev$request_uri;
-}
-
-
-server {
-       listen       $PORT default_server;
-       server_name  www.josephbanass.dev;
-
-       location / {
-                root   /usr/share/nginx/html;
-                index  index.html;
-        }
+  location / {
+    root   /usr/share/nginx/html;
+    index  index.html;
+  }
 }
