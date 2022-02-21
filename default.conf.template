@@ -1,5 +1,6 @@
 server {
   listen $PORT default_server;
+  server_name josephbanass.dev www.josephbanass.dev;
 
   location / {
     root   /usr/share/nginx/html;
